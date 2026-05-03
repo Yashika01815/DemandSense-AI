@@ -32,7 +32,13 @@ DemandSense AI provides:
 * 📊 Interactive KPI dashboard
 * 🔍 Insight generation (trends, volatility, promotions)
 * ⚡ Real-time data analysis
+<img width="1895" height="857" alt="image" src="https://github.com/user-attachments/assets/3d66c211-13ea-4cfb-9b07-c659bf9f4878" />
 
+---
+## 🌐 Live Demo
+
+🚀 Try the application here:
+👉 https://demandsense-ai.streamlit.app/
 ---
 
 ## 🧠 Key Features
