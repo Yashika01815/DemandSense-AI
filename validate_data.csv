@@ -1,0 +1,56 @@
+import pandas as pd
+
+df = pd.read_csv("demo_sales.csv")
+
+print("Shape:", df.shape)
+print("\nColumns:", df.columns.tolist())
+
+# -----------------------------
+# 1. CHECK MISSING VALUES
+# -----------------------------
+print("\nMissing values per column:")
+print(df.isnull().sum())
+
+# Optional: percentage
+print("\nMissing %:")
+print((df.isnull().sum() / len(df)) * 100)
+
+# -----------------------------
+# 2. CHECK DUPLICATES
+# -----------------------------
+duplicates = df.duplicated().sum()
+print("\nDuplicate rows:", duplicates)
+
+# -----------------------------
+# 3. CHECK DATA TYPES
+# -----------------------------
+print("\nData types:")
+print(df.dtypes)
+
+# -----------------------------
+# 4. CHECK BASIC STATS
+# -----------------------------
+print("\nNumerical summary:")
+print(df.describe())
+
+# -----------------------------
+# 5. CHECK NEGATIVE OR INVALID SALES
+# -----------------------------
+invalid_sales = df[df["sales"] < 0]
+print("\nNegative sales rows:", len(invalid_sales))
+
+# -----------------------------
+# 6. CHECK DATE FORMAT
+# -----------------------------
+try:
+    df["date"] = pd.to_datetime(df["date"])
+    print("\nDate column is valid")
+except:
+    print("\nDate format issue detected")
+
+# -----------------------------
+# 7. CHECK UNIQUE VALUES (CATEGORICAL)
+# -----------------------------
+print("\nUnique stores:", df["store_nbr"].nunique())
+print("Unique products:", df["family"].nunique())
+print("Unique cities:", df["city"].nunique())
